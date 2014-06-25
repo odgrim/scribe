@@ -29,6 +29,9 @@ AC_CHECK_HEADERS([stdint.h])
 AC_CHECK_HEADERS([stdlib.h])
 AC_CHECK_HEADERS([unistd.h])
 
+AC_CHECK_LIB([event], [main])
+AC_CHECK_LIB([fb303], [main])
+
 AC_CHECK_HEADER_STDBOOL
 
 AC_C_INLINE
