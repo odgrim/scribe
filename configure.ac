@@ -8,7 +8,7 @@
 # DO NOT TOUCH EXCEPT TO CHANGE REV# IN AC_INIT
 
 AC_PREREQ(2.68)
-AC_INIT([scribe], [2.2.0])
+AC_INIT([scribe], [2.2.0-eloy])
 AC_CONFIG_MACRO_DIR([aclocal])
 AM_INIT_AUTOMAKE([foreign -Wall -Wno-portability subdir-objects])
 AC_PREFIX_DEFAULT([/usr/local])
