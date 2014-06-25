@@ -7,11 +7,39 @@
 #########################################################################
 # DO NOT TOUCH EXCEPT TO CHANGE REV# IN AC_INIT
 
-AC_PREREQ(2.52)
-AC_INIT([scribe], [1.5.0])
+AC_PREREQ(2.68)
+AC_INIT([scribe], [2.2.0])
 AC_CONFIG_MACRO_DIR([aclocal])
 AM_INIT_AUTOMAKE([foreign -Wall])
 AC_PREFIX_DEFAULT([/usr/local])
+
+AC_PROG_RANLIB
+AM_PROG_AR
+
+AC_CHECK_FUNCS([gethostname])
+AC_CHECK_FUNCS([gettimeofday])
+AC_CHECK_FUNCS([localtime_r])
+AC_CHECK_FUNCS([sqrt])
+AC_CHECK_FUNCS([strchr])
+AC_CHECK_FUNCS([strtol])
+AC_CHECK_FUNCS([strtoul])
+AC_CHECK_FUNCS([strtoull])
+
+AC_CHECK_HEADERS([stdint.h])
+AC_CHECK_HEADERS([stdlib.h])
+AC_CHECK_HEADERS([unistd.h])
+
+AC_CHECK_HEADER_STDBOOL
+
+AC_C_INLINE
+
+AC_FUNC_MALLOC
+AC_FUNC_STRTOD
+AC_TYPE_INT32_T
+AC_TYPE_SIZE_T
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
+AC_TYPE_UINT8_T
 
 ############################################################################
 # User Configurable. Change With CAUTION!
