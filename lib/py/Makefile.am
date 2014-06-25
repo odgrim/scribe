@@ -15,8 +15,6 @@ install-exec-hook:
 
 
 
-clean:	clean-local
-
 clean-local:
 
 check-local: all
