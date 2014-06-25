@@ -10,7 +10,7 @@
 AC_PREREQ(2.68)
 AC_INIT([scribe], [2.2.0])
 AC_CONFIG_MACRO_DIR([aclocal])
-AM_INIT_AUTOMAKE([foreign -Wall])
+AM_INIT_AUTOMAKE([foreign -Wall -Wno-portability subdir-objects])
 AC_PREFIX_DEFAULT([/usr/local])
 
 AC_PROG_RANLIB
