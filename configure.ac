@@ -11,8 +11,6 @@ AC_PREREQ(2.52)
 AC_INIT([scribe], [1.5.0])
 AC_CONFIG_MACRO_DIR([aclocal])
 AM_INIT_AUTOMAKE([foreign -Wall])
-# To install locally
-FB_INITIALIZE([localinstall])
 AC_PREFIX_DEFAULT([/usr/local])
 
 ############################################################################
@@ -101,4 +99,3 @@ echo "EXTERNAL_PATH $EXTERNAL_PATH"
 #)
 #AM_CONDITIONAL([FACEBOOK], [test "$ENABLE_FACEBOOK" = yes])
 #AC_MSG_RESULT($ENABLE_FACEBOOK)
-
