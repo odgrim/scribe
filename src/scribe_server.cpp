@@ -24,6 +24,11 @@
 #include "common.h"
 #include "scribe_server.h"
 
+#ifdef HAVE_DAEMON
+#include <signal.h>
+#endif
+
+
 using namespace apache::thrift::concurrency;
 
 using namespace facebook::fb303;
@@ -68,6 +73,8 @@ void scribeHandler::incCounter(string counter, long amount) {
 
 int main(int argc, char **argv) {
 
+  bool daemonise = false;
+
   try {
     /* Increase number of fds */
     struct rlimit r_fd = {65535,65535};
@@ -77,6 +84,7 @@ int main(int argc, char **argv) {
 
     int next_option;
     const char* const short_options = "hp:c:";
+    const char* const short_options = "hp:c:d";
     const struct option long_options[] = {
       { "help",   0, NULL, 'h' },
       { "port",   0, NULL, 'p' },
@@ -95,11 +103,26 @@ int main(int argc, char **argv) {
       case 'c':
         config_file = optarg;
         break;
+      case 'd':
+        daemonise = true;
+        break;
       case 'p':
         port = strtoul(optarg, NULL, 0);
         break;
       }
     }
+
+#ifdef HAVE_DAEMON
+    if (daemonise) {
+        int res;
+        res = daemon(1, 1);
+        if (res == -1) {
+          fprintf(stderr, "failed to daemonise with daemon()\n");
+          exit(1);
+        }
+        signal(SIGPIPE, SIG_IGN);
+    }
+#endif
 
     // assume a non-option arg is a config file name
     if (optind < argc && config_file.empty()) {
