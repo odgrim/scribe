@@ -83,7 +83,6 @@ int main(int argc, char **argv) {
     }
 
     int next_option;
-    const char* const short_options = "hp:c:";
     const char* const short_options = "hp:c:d";
     const struct option long_options[] = {
       { "help",   0, NULL, 'h' },

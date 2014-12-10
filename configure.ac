@@ -93,6 +93,8 @@ AX_BOOST_BASE([1.36])
 AX_BOOST_SYSTEM
 AX_BOOST_FILESYSTEM
 
+AC_CHECK_FUNC(daemon,AC_DEFINE([HAVE_DAEMON],,[Define this if you have daemon()]),[DAEMON_OBJ=daemon.o])
+
 # Generates Makefile from Makefile.am. Modify when new subdirs are added.
 # Change Makefile.am also to add subdirectly.
 AC_CONFIG_FILES(Makefile src/Makefile lib/py/Makefile)
