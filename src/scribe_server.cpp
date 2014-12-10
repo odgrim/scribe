@@ -51,7 +51,7 @@ static string overall_category = "scribe_overall";
 static string log_separator = ":";
 
 void print_usage(const char* program_name) {
-  cout << "Usage: " << program_name << " [-p port] [-c config_file]" << endl;
+  cout << "Usage: " << program_name << " [-d] [-p port] [-c config_file]" << endl;
 }
 
 void scribeHandler::incCounter(string category, string counter) {
